@@ -1,4 +1,4 @@
-Notes on Chapter 3: Structuring of Distributed Systems
+Chapter 3: Structuring of Distributed Systems
 ======================================================
 
 Biggest issue with Distributed Shared Memory is that is more expensive to sync all data to every node versus just
