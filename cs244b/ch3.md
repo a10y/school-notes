@@ -112,6 +112,25 @@ The at-most-once and at-least-once are very different from the local model and c
 Can be ameliorated by making the system transactional, giving client access to transaction log. This exacerbates the
 performance issue, however.
 
+
+Smart Proxies
+-------------
+
+Viable alternative to direct RPC: allows for caching of data locally to prevent RTT, i.e. "data shipping"
+
+Smart proxies will keep a locally cached copy of the data. This does not work well if you have extremely large data
+
+Stateful Proxy
+--------------
+
+Use attribute interface -> Each read is nilpotent, writes are idempotent
+
+Benefits over OO RPC:
+  1. Recovery semantics are clear -> after connection loss, proxy and master just resync state
+  2. Reads/Writes are always local with async updates -> better performance, easy to reason about
+  3. Restrictive set of operations exposed -> less tight coupling over traditional OO RPC, which allows any methods
+
+
 Lecture
 -------
 
@@ -144,4 +163,4 @@ Cheriton's Thinking: Have interfaces that are state (attribute) oriented. CRUD
 
 Issues here:
 
-  * High memory overhead of creating multiple objects on different serers
+  * High memory overhead of creating multiple objects on different servers
